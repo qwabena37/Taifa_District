@@ -1,18 +1,9 @@
-// ===== src/components/CongregationCard.jsx =====
-import { motion } from 'framer-motion'
-
 export function CongregationCard({ congregation }) {
   return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      className="bg-white rounded-2xl shadow-md p-5 border"
-    >
-      <h3 className="text-lg font-semibold text-blue-900">
-        {congregation.name}
-      </h3>
-      <p className="text-gray-600 text-sm mt-2">
-        Serving the Taifa community with faith, love and unity.
-      </p>
-    </motion.div>
-  )
+    <div className="bg-white rounded-lg shadow-md p-6 border hover:shadow-lg transition">
+      <h3 className="text-xl font-semibold mb-2">{congregation.name}</h3>
+      <p className="text-gray-600 mb-1">Location: {congregation.location}</p>
+      <p className="text-gray-600">Leader: {congregation.leader}</p>
+    </div>
+  );
 }
