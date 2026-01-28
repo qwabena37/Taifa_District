@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const images = [
-  '/images/donations/d1.jpeg',
   '/images/donations/d2.jpeg',
-  '/images/donations/d3.jpeg',
   '/images/donations/d6.jpeg',
   '/images/donations/d7.jpeg',
   '/images/donations/d8.jpeg',
