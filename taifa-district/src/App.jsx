@@ -3,14 +3,14 @@ import { Routes, Route } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 
-import Home from './pages/Home'
+import Home from './Pages/Home'
 import Projects from './pages/Projects'
-import Congregations from './pages/Congregations'
-import Contact from './pages/Contact'
+import Congregations from './Pages/Congregations'
+import Contact from './Pages/Contact'
 
 import AboutLayout from './pages/about/AboutLayout'
 import DistrictMinister from './pages/about/DistrictMinister'
-import ReverendMinisters from './pages/about/ReverendMinisters'
+import ReverendMinisters from './Pages/about/ReverendMinisters'
 import Catechists from './pages/about/Catechists'
 import DistrictExecutives from './pages/about/DistrictExecutives'
 
