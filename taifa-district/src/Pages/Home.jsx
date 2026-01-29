@@ -1,11 +1,44 @@
-// ================= src/pages/Home.jsx =================
+import { useState, useEffect } from "react"
 import { HeroCarousel } from '../components/HeroCarousel'
 import { FaYoutube, FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa'
 import { DonationCarousel } from '../components/DonationCarousel'
+import Congregations from './Congregations'
+import { Generational } from '../components/Generational'
+import { Congregational } from '../components/Congregational'
+import { VideoGallery } from "../components/VideoGallery"
+
+function DateTimeBar() {
+  const [dateTime, setDateTime] = useState(new Date())
+
+  useEffect(() => {
+    const interval = setInterval(() => setDateTime(new Date()), 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  // Format date and time nicely
+  const formatted = dateTime.toLocaleString(undefined, {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+  })
+
+  return (
+    <div className="bg-white text-black text-center py-2 text-sm font-medium shadow-md">
+      {formatted}
+    </div>
+  )
+}
 
 export default function Home() {
   return (
     <>
+      <DateTimeBar />
+
       <HeroCarousel />
 
       {/* Connect With Us */}
@@ -54,26 +87,25 @@ export default function Home() {
       </section>
 
       <section className="py-16 text-center">
-  <h2 className="text-4xl font-bold text-white bg-gradient-to-r from-blue-600 to-red-600">
-    Our Vision . Our Mission
-  </h2>
+        <h2 className="text-4xl font-bold text-white bg-gradient-to-r from-blue-600 to-red-600">
+          Our Vision . Our Mission
+        </h2>
 
- <img
-  src="/images/mv.PNG"
-  alt="our mission and vision"
-  className="w-full max-w-6xl mx-auto mt-4 object-contain"
-/>
+        <img
+          src="/images/mv.PNG"
+          alt="our mission and vision"
+          className="w-full max-w-6xl mx-auto mt-4 object-contain"
+        />
 
-
-  {/* Donation Carousel */}
-  <DonationCarousel />
-
-  <p className="max-w-3xl mx-auto mt-8 text-gray-600">
-    We are one district made up of seventeen congregations united in faith,
-    service and mission to the Glory of God.
-  </p>
-</section>
-
+        {/* Donation Carousel */}
+        <DonationCarousel />
+        <Congregational />
+        <Generational />
+        <VideoGallery />
+        <p className="max-w-3xl text-xl mx-auto mt-8 bg-gradient-to-r from-blue-600 to-red-600 text-white">
+          Peace Be Unto You . Asomdwe Nka Wo
+        </p>
+      </section>
     </>
   )
 }
