@@ -58,11 +58,12 @@ export default function Home() {
     Our Vision . Our Mission
   </h2>
 
-  <img
-    src="/images/mv.PNG"
-    alt="our mission and vision"
-    className="max-w-6xl mx-auto mt-4"
-  />
+ <img
+  src="/images/mv.PNG"
+  alt="our mission and vision"
+  className="w-full max-w-6xl mx-auto mt-4 object-contain"
+/>
+
 
   {/* Donation Carousel */}
   <DonationCarousel />
