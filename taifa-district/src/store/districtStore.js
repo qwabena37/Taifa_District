@@ -4,7 +4,7 @@ import { create } from 'zustand'
 export const useDistrictStore = create(() => ({
   districtName: 'PCG TAIFA DISTRICT',
   carouselImages: [
-    { id: 1, src: '/images/w.jpeg', caption: 'WELCOME TO PCG - TAIFA DISTRICT' },
+    { id: 1, src: '/images/w.jpg', caption: 'WELCOME TO PCG - TAIFA DISTRICT' },
     { id: 2, src: '/images/e.jpg', caption: 'That, They All May Be One' },
     { id: 3, src: '/images/t.jpg', caption: 'Sixteen Congregations, One Vision, One Mission' },
     { id: 4, src: '/images/f.jpg', caption: 'United in Faith' },
