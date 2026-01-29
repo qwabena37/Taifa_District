@@ -4,15 +4,15 @@ import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 
 import Home from './Pages/Home'
-import Projects from './pages/Projects'
+import Projects from './Pages/Projects'
 import Congregations from './Pages/Congregations'
 import Contact from './Pages/Contact'
 
-import AboutLayout from './pages/about/AboutLayout'
-import DistrictMinister from './pages/about/DistrictMinister'
+import AboutLayout from './Pages/about/AboutLayout'
+import DistrictMinister from './Pages/about/DistrictMinister'
 import ReverendMinisters from './Pages/about/ReverendMinisters'
-import Catechists from './pages/about/Catechists'
-import DistrictExecutives from './pages/about/DistrictExecutives'
+import Catechists from './Pages/about/Catechists'
+import DistrictExecutives from './Pages/about/DistrictExecutives'
 
 export default function App() {
   return (
