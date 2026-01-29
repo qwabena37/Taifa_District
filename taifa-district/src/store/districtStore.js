@@ -12,7 +12,7 @@ export const useDistrictStore = create(() => ({
     { id: 6, src: '/images/m.jpg', caption: 'Enforcing the Mission of the PCG' },
     { id: 7, src: '/images/n.jpg', caption: 'Serving Our Communities' },
     { id: 8, src: '/images/j.jpg', caption: 'Admonishing Our Members' },
-    { id: 9, src: '/images/g.jpg', caption: 'Growing Hollistically' },
+    { id: 9, src: '/images/g.jpg', caption: 'Growing Holistically' },
     { id: 10, src: '/images/v.jpeg', caption: 'Christ-Centered' },
  ],
 }))
