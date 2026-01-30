@@ -21,9 +21,9 @@ export function Footer() {
             Contact Us
           </h4>
           <ul className="text-sm text-gray-300 space-y-2">
-            <li>📞 +233 24 000 0000</li>
-            <li>📞 +233 20 000 0000</li>
-            <li>✉️ pcgtaifadistrict@gmail.com</li>
+            <li>📞 +233 30 396 8923</li>
+            <li>📞 +233 24 254 6421</li>
+            <li>✉️ taifadist@gmail.com</li>
             <li>📍 Taifa – Accra, Ghana</li>
           </ul>
         </div>

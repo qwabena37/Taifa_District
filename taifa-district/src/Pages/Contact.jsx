@@ -34,7 +34,8 @@ export default function Contact() {
           ></textarea>
         </div>
 
-        <button
+        <button 
+          onClick={() => window.location.href = "mailto:taifadist@gmail.com?subject=Contact%20Us&body=Hello"}
           type="submit"
           className="bg-blue-700 text-white px-6 py-3 rounded-md hover:bg-blue-800 transition"
         >
