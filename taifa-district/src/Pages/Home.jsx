@@ -2,37 +2,108 @@ import { useState, useEffect } from "react"
 import { HeroCarousel } from '../components/HeroCarousel'
 import { FaYoutube, FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa'
 import { DonationCarousel } from '../components/DonationCarousel'
-import Congregations from './Congregations'
 import { Generational } from '../components/Generational'
 import { Congregational } from '../components/Congregational'
 import { VideoGallery } from "../components/VideoGallery"
 
+
 function DateTimeBar() {
   const [dateTime, setDateTime] = useState(new Date())
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     const interval = setInterval(() => setDateTime(new Date()), 1000)
     return () => clearInterval(interval)
   }, [])
 
-  // Format date and time nicely
   const formatted = dateTime.toLocaleString(undefined, {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
     hour12: true,
   })
 
   return (
-    <div className="bg-white text-black text-center py-2 text-sm font-medium shadow-md">
-      {formatted}
+    <div className="bg-gray-100 text-blue-700 text-sm font-medium shadow-md px-6 py-2">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+
+        {/* Date & Time */}
+        <div className="text-center md:text-left">
+          {formatted}
+        </div>
+
+        {/* Utilities */}
+        <div className="flex items-center gap-6 relative">
+
+          {/* Resources Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setOpen(!open)}
+              className="flex items-center gap-1 font-semibold hover:underline"
+            >
+              📂 Resources
+              <span className="text-xs">{open ? "▲" : "▼"}</span>
+            </button>
+
+            {open && (
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border z-50">
+                <ul className="text-sm text-gray-700">
+                  <li>
+                    <a
+                      href="/resources/constitution.pdf"
+                      download
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      📄 Constitution
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/resources/almanac2026.pdf"
+                      download
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      📘 Almanac
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/resources/.pdf"
+                      download
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      📊 Annual Report
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {/* Divider */}
+          <span className="hidden md:inline text-gray-400">|</span>
+
+          {/* Live Stream */}
+          <a
+            href="https://www.youtube.com/@ramseyercongregationtaifap6723"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-red-600 font-semibold hover:underline"
+          >
+            <FaYoutube className="text-lg" />
+            Join Live Stream
+          </a>
+
+        </div>
+      </div>
     </div>
   )
 }
+
 
 export default function Home() {
   return (
