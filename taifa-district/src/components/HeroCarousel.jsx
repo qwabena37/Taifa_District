@@ -24,9 +24,11 @@ export function HeroCarousel() {
   // ==============================
  useEffect(() => {
   const fetchVerse = () => {
-    fetch("https://bible-api.com")
+    console.log("Fetching new verse...");
+    fetch("https://bible-api.com/random")
       .then((res) => res.json())
       .then((data) => {
+        console.log("Verse received:", data.text);
         setVerse({
           text: data.text,
           reference: data.reference,
@@ -42,10 +44,11 @@ export function HeroCarousel() {
 
   fetchVerse(); // fetch immediately on mount
 
-  const intervalId = setInterval(fetchVerse, 10000); // fetch every 30s
+  const intervalId = setInterval(fetchVerse, 10000); // fetch every 30 seconds
 
   return () => clearInterval(intervalId); // cleanup on unmount
 }, []);
+
 
 
 
@@ -86,8 +89,8 @@ export function HeroCarousel() {
               Bible Verse Widget
           ============================== */}
     {verse && (
-  <div className="absolute top-6 right-6 bg-transparent rounded-xl p-4 max-w-xs w-full max-w-[280px]">
-    <div className="flex items-start flex-nowrap gap-3">
+  <div className="absolute top-6 right-6 bg-transparent rounded-xl p-4 w-full max-w-[280px]">
+    <div className="flex items-start flex-wrap gap-2">
       <span className="text-blue-900 text-2xl flex-shrink-0">📖</span>
       <div className="text-right sm:text-left break-words w-full">
         <p className="text-xs sm:text-sm md:text-base text-white leading-snug drop-shadow break-words">
