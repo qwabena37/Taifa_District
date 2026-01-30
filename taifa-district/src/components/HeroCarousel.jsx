@@ -20,9 +20,10 @@ export function HeroCarousel() {
   }, [images.length]);
 
   // ==============================
-  // Fetch Bible verse on page load
+  // Fetch Bible verse every half a min
   // ==============================
   useEffect(() => {
+  const fetchVerse = () => {
     fetch("https://bible-api.com/random")
       .then((res) => res.json())
       .then((data) => {
@@ -32,13 +33,20 @@ export function HeroCarousel() {
         });
       })
       .catch(() => {
-        // Fallback verse (offline-safe)
         setVerse({
           text: "The Lord is my shepherd; I shall not want.",
           reference: "Psalm 23:1",
         });
       });
-  }, []);
+  };
+
+  fetchVerse(); // initial fetch
+
+  const verseTimer = setInterval(fetchVerse, 10000); // every 10 seconds
+
+  return () => clearInterval(verseTimer);
+}, []);
+
 
   // ==============================
   // SAFETY CHECK
@@ -76,21 +84,24 @@ export function HeroCarousel() {
           {/* ==============================
               Bible Verse Widget
           ============================== */}
-          {verse && (
-<div className="absolute top-6 right-6 bg-transparent rounded-xl p-4 max-w-xs">              <div className="flex items-start gap-3">
-                <span className="text-blue-900 text-2xl">📖</span>
-                <div>
-                 <p className="text-sm text-white leading-snug drop-shadow">
-  “{verse.text.trim()}”
-</p>
-<p className="text-xs text-white font-semibold mt-1 drop-shadow">
-  — {verse.reference}
-</p>
+    {verse && (
+  <div className="absolute top-6 right-6 bg-transparent rounded-xl p-4 max-w-xs w-full max-w-[280px]">
+    <div className="flex items-start flex-nowrap gap-3">
+      <span className="text-blue-900 text-2xl flex-shrink-0">📖</span>
+      <div className="text-right sm:text-left break-words w-full">
+        <p className="text-xs sm:text-sm md:text-base text-white leading-snug drop-shadow break-words">
+          “{verse.text.trim()}”
+        </p>
+        <p className="text-[10px] sm:text-xs md:text-sm text-white font-semibold mt-1 drop-shadow break-words">
+          — {verse.reference}
+        </p>
+      </div>
+    </div>
+  </div>
+)}
 
-                </div>
-              </div>
-            </div>
-          )}
+
+
         </div>
       ))}
     </section>
