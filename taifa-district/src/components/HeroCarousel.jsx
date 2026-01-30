@@ -36,8 +36,8 @@ export function HeroCarousel() {
       })
       .catch(() => {
         setVerse({
-          text: "The Lord is my shepherd; I shall not want.",
-          reference: "Psalm 23:1",
+          text: "For no one can lay any foundation other than the one already laid, which is Jesus Christ.",
+          reference: "1 Corinthians 3:11",
         });
       });
   };
@@ -89,20 +89,28 @@ export function HeroCarousel() {
               Bible Verse Widget
           ============================== */}
     {verse && (
-  <div className="absolute top-6 right-6 bg-transparent rounded-xl p-4 w-full max-w-[280px]">
-    <div className="flex items-start flex-wrap gap-2">
-      <span className="text-blue-900 text-2xl flex-shrink-0">📖</span>
+  <div className="absolute top-6 right-6 bg-transparent rounded-xl p-3 sm:p-4 w-full max-w-[260px] sm:max-w-[280px]">
+    <div className="flex flex-col sm:flex-row items-end sm:items-start gap-1 sm:gap-2">
+      
+      {/* Bible Icon */}
+      <span className="text-blue-900 text-lg sm:text-xl md:text-2xl flex-shrink-0">
+        📖
+      </span>
+
+      {/* Verse Text */}
       <div className="text-right sm:text-left break-words w-full">
-        <p className="text-xs sm:text-sm md:text-base text-white leading-snug drop-shadow break-words">
+        <p className="text-xs sm:text-sm md:text-base text-white leading-snug drop-shadow">
           “{verse.text.trim()}”
         </p>
-        <p className="text-[10px] sm:text-xs md:text-sm text-white font-semibold mt-1 drop-shadow break-words">
+        <p className="text-[10px] sm:text-xs md:text-sm text-white font-semibold mt-1 drop-shadow">
           — {verse.reference}
         </p>
       </div>
+
     </div>
   </div>
 )}
+
 
 
 
