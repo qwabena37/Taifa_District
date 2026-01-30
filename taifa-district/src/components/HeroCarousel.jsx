@@ -22,9 +22,9 @@ export function HeroCarousel() {
   // ==============================
   // Fetch Bible verse every half a min
   // ==============================
-  useEffect(() => {
+ useEffect(() => {
   const fetchVerse = () => {
-    fetch("https://bible-api.com/random")
+    fetch("https://bible-api.com")
       .then((res) => res.json())
       .then((data) => {
         setVerse({
@@ -40,12 +40,13 @@ export function HeroCarousel() {
       });
   };
 
-  fetchVerse(); // initial fetch
+  fetchVerse(); // fetch immediately on mount
 
-  const verseTimer = setInterval(fetchVerse, 10000); // every 10 seconds
+  const intervalId = setInterval(fetchVerse, 10000); // fetch every 30s
 
-  return () => clearInterval(verseTimer);
+  return () => clearInterval(intervalId); // cleanup on unmount
 }, []);
+
 
 
   // ==============================
